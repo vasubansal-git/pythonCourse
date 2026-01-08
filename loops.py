@@ -21,3 +21,32 @@ for i in range(1, 10, 2):
 #reverse loop
 for i in range(10, -1, -1):
     print(i)
+
+
+#while loop:
+
+i = 0
+while i < 5:
+    print(i)
+    i = i + 1
+
+i = 0
+while i <= 38:
+    i = int(input("Enter a number: "))
+    print("You entered:", i)
+
+#decrementing while loop:
+
+i = 5
+while i > 0:
+    print(i)
+    i = i - 1
+else:
+    print("I am inside else")
+
+#print square of numbers from 1 to 10:
+
+i = 1
+while i <= 10:
+    print("Square of", i, "is", i * i)
+    i = i + 1
