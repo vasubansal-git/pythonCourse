@@ -17,3 +17,16 @@ txt = f"For only {price:.2f} dollars!"
 print(txt)
 
 print(type(f"{2 + 3}"))  #expression inside f-string
+
+#questions:
+
+num = 123
+print(f"{num:05d}") #output: 00123 (total width 5, padded with zeros)
+
+#conditions inside f-strings
+age = 18
+print(f"You are {'an adult' if age >= 18 else 'a minor'}.")
+
+marks = 85
+print(f"You have {'Passed' if marks >= 40 else 'Failed'} in the exam with {marks} marks.")
+
