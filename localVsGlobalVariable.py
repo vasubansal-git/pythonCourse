@@ -11,7 +11,7 @@ def hello():
 print(f"The global x is {x}")
 hello()
 print(f"The global x ix {x}")
-print(y) #This will cause an error because y is a local variable and not accessible outside of the function.
+# print(y) #This will cause an error because y is a local variable and not accessible outside of the function.
 
 # To solve this we can use global keyword in our function
 
@@ -27,4 +27,4 @@ def test():
 test()
 print(f"The Global variable is {p}")
 print(f"The Global variable is {z}")
-print(l) # This will cause an error
+# print(l) # This will cause an error
