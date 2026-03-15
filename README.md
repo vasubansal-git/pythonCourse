@@ -150,7 +150,6 @@ Python-Course
 <ul>
 <li>Add more coding problems</li>
 <li>Add Python projects</li>
-<li>Start Data Structures and Algorithms</li>
 <li>Build AI/ML related Python projects</li>
 </ul>
 
