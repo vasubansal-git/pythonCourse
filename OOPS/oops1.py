@@ -46,7 +46,7 @@
 # Atm:
 
 class Atm:
-    def __init__(self): # Constructor
+    def __init__(self): # Constructor / Magic method
         self.pin = ""
         self.balance = 0
 
@@ -106,3 +106,128 @@ class Atm:
             print("Invalid pin!")
 
 a = Atm() #calling
+
+# Magic methods:
+
+class Atm:
+    def __init__(self): # Constructor / Magic method
+        self.pin = ""
+        self.balance = 0
+
+        print(id(self)) # to check address of self
+        self.menu()
+
+    def menu(self):
+        user_input = input("""
+                        Hello, how would you like to proceed?
+                        1. Enter 1 to create pin
+                        2. Enter 2 to deposite
+                        3. Enter 3 to withdraw
+                        4. Enter 4 to check balance
+                        5. Enter 5 to exit
+        """)
+
+        if(user_input == "1"):
+            self.create_pin()
+        elif(user_input == "2"):
+            self.deposite()
+        elif(user_input == "3"):
+            self.withdraw()
+        elif(user_input == "4"):
+            self.check_balance()
+        else:
+            print("Bye!")
+
+    def create_pin(self):
+        self.pin = input("Enter your pin: ")
+        print("Pin set successfully")
+
+        self.menu()
+
+    def deposite(self):
+        temp = input("Enter your pin: ")
+        if temp == self.pin:
+            amount = int(input("Enter the amount: "))
+            self.balance = self.balance + amount
+            print("Deposite successful")
+        else:
+            print("Invalid pin!")
+
+        self.menu()
+
+    def withdraw(self):
+        temp = input("Enter your pin: ")
+        if temp == self.pin:
+            amount = int(input("Enter the amount: "))
+            if amount < self.balance:
+                self.balance = self.balance - amount
+                print("Withdraw successful")
+            else:
+                print("Insufficient balance")
+        else:
+            print("Invalid pin!")
+
+        self.menu()
+
+    def check_balance(self):
+        temp = input("Enter your pin: ")
+        if temp == self.pin:
+            print(f"Your balance: {self.balance}")
+        else:
+            print("Invalid pin!")
+
+        self.menu()
+
+a = Atm() #calling
+
+# self is object (Most important)
+
+# Create own data type: Fraction
+
+class Fraction:
+
+    def __init__(self, n, d):
+        self.num = n
+        self.den = d
+
+    def __str__(self):
+        return "{}/{}".format(self.num, self.den)
+
+    def __add__(self, other):
+
+        temp_num = self.num * other.den + other.num * self.den
+        temp_den = self.den * other.den
+
+        return "{}/{}".format(temp_num, temp_den)
+
+    def __sub__(self, other):
+    
+            temp_num = self.num * other.den - other.num * self.den
+            temp_den = self.den * other.den
+    
+            return "{}/{}".format(temp_num, temp_den)
+
+    def __mul__(self, other):
+    
+            temp_num = self.num * other.num 
+            temp_den = self.den * other.den
+    
+            return "{}/{}".format(temp_num, temp_den)
+
+    def __truediv__(self, other):
+    
+            temp_num = self.num * other.den 
+            temp_den = self.den * other.num
+    
+            return "{}/{}".format(temp_num, temp_den)
+
+x = Fraction(3, 4)
+y = Fraction(5, 6)
+# print(type(x))
+print(x)
+print(y)
+
+print(x + y) # to use this we need of __add__ magic method
+print(x - y) # to use this we need of __sub__ magic method
+print(x * y) # to use this we need of __mul__ magic method
+print(x / y) # to use this we need of __truediv__ magic method
