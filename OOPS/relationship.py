@@ -33,3 +33,31 @@ cust = Customer('Vasu', 'Male', add)
 cust.edit_profile('Ankit', 'KKR', 123456, 'Haryana')
 
 print(cust.address.pincode)
+
+# Inheritance ---------------------------------------------------------------------------------->
+# Note: Data members, members methods, constructor can inherited but private members not inherited.
+
+class User: #parent class
+
+    def login(self):
+        print("Login")
+
+    def register(self):
+        print("Registered")
+
+class Student(User): #child class
+
+    def enroll(self):
+        print("Enroll")
+
+    def review(self):
+        print("Review")
+
+stu1 = Student()
+
+stu1.login()
+stu1.register()
+stu1.enroll()
+stu1.review()
+
+# Note: Only child class can inherit the properties of parent class.
